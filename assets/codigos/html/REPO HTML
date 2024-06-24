@@ -1,0 +1,46 @@
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Repositório</title>
+        <link rel="stylesheet" href="styles2.css">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html" id="user-name">Bernardo Augusto Pereira Lopes</a>
+                </div>
+                
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div class="repository">
+                <h2>Repositório: <a href=""></a></h2>
+                <p class="description">
+                    Sapiente qui ea eaque ab nihil aliquam nemo, id quis laboriosam perspiciatis mollitia odio fugit eius magnam libero? Voluptatem officia facere, laudantium sunt accusantium explicabo inventore iste adipisci nesciunt sapiente sit enim? Adipisci veniam repudiandae eaque voluptatem exercitationem inventore, fugiat dicta rerum odit dolores quo possimus repudiandae, ducimus sunt totam dolor itaque!
+                </p>
+                <ul class="info">
+                    <li><strong>Data de Criação:</strong> 01/06/2024</li>
+                    <li><strong>Linguagem:</strong> HTML, CSS, JavaScript</li>
+                </ul>
+                <div class="links">
+                    <a href="https://github.com/WebTech-PUC-Minas/it-template-01" target="_blank">Link de Acesso</a>
+                    <div class="social">
+                        <span>⭐ 0</span>
+                        <span>👀 2</span>
+                    </div>
+                </div>
+                <div class="topics">
+                    <span>JavaScript</span>
+                    <span>DevOps</span>
+                    <span>FrontEnd</span>
+                    <span>React</span>
+                    <span>BackEnd</span>
+                </div>
+            </div>
+        </main>
+    </body>
+    </html>

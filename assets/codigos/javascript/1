@@ -1,0 +1,73 @@
+// Função para carregar os dados do perfil do GitHub
+function getProfileGitHub() {
+    fetch('https://api.github.com/users/Bernardoapl')
+        .then(async res => {
+            if (!res.ok) {
+                throw new Error(res.status);
+            }
+            let profile = await res.json();
+            console.log("Dados do perfil recebidos:", profile);
+            document.getElementById('profile-img').src = profile.avatar_url;
+            document.getElementById('profile-name').innerText = profile.name || profile.login;
+            document.getElementById('profile-bio').innerText = profile.bio || 'Sem descrição do perfil';
+            document.getElementById('profile-location').innerText = `Location: ${profile.location || 'Não informado'}`;
+            document.getElementById('profile-website').innerHTML = `Website: <a href="${profile.blog || '#'}" target="_blank">${profile.blog || 'Link para o site'}</a>`;
+            document.getElementById('profile-github').href = profile.html_url;
+            document.getElementById('profile-instagram').href = 'https://www.instagram.com/bernardoapl/'; // Link do Instagram
+            document.getElementById('profile-linkedin').href = 'https://www.linkedin.com/in/bernardo-augusto-3500b92b6/'; // Link do LinkedIn
+            document.getElementById('profile-visits').innerHTML = `<strong>${profile.followers} Seguidores</strong>`;
+        })
+        .catch(error => console.error('Erro ao buscar o perfil:', error));
+}
+
+// Função para carregar os repositórios do GitHub
+function getApiGitHub() {
+    fetch('https://api.github.com/users/Bernardoapl/repos')
+        .then(async res => {
+            if (!res.ok) {
+                throw new Error(res.status);
+            }
+            let data = await res.json();
+            console.log("Dados recebidos da API GitHub:", data);
+            const repositories = document.querySelector("#repositories .repo-list");
+            repositories.innerHTML = ""; // Limpa o conteúdo atual
+            data.forEach(item => {
+                let project = document.createElement('div');
+                project.classList.add('repo');
+                project.innerHTML = `
+                    <h4>${item.name}</h4>
+                    <p>${item.description || 'Sem descrição'}</p>
+                    <p>⭐ ${item.stargazers_count} <span>&#128071;</span> ${item.forks_count}</p>
+                `;
+                repositories.appendChild(project);  // Adiciona o projeto ao contêiner
+            });
+        })
+        .catch(error => console.error('Erro ao buscar os repositórios:', error));
+}
+
+// Função para carregar colegas de trabalho (simulado, substitua com dados reais se necessário)
+function loadWorkColleagues() {
+    const colleaguesList = document.querySelector("#work-colleagues .colleagues-list");
+    colleaguesList.innerHTML = ""; // Limpa o conteúdo atual
+    const colleagues = [
+        { name: "Rafael Almeida Costa", image: "img/transferir (1).jpg" },
+        { name: "Marina Santos Ferreira", image: "img/transferir (2).jpg" },
+        { name: "Lucas Henrique Oliveira", image: "img/transferir.jpg" }
+    ];
+    colleagues.forEach(colleague => {
+        let colleagueElem = document.createElement('div');
+        colleagueElem.classList.add('colleague');
+        colleagueElem.innerHTML = `
+            <img src="${colleague.image}" alt="${colleague.name}" />
+            <p>${colleague.name}</p>
+        `;
+        colleaguesList.appendChild(colleagueElem); // Adiciona colega à lista
+    });
+}
+
+// Chama as funções para carregar os dados do perfil, repositórios e colegas ao carregar a página
+document.addEventListener("DOMContentLoaded", function () {
+    getProfileGitHub();
+    getApiGitHub();
+    loadWorkColleagues();
+});

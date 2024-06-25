@@ -91,16 +91,18 @@
                 </div>
             </div>
             
-                <h3><a href="index2.html">Repositórios do GitHub </h3></a>
+            <h3>
+                <p> API GIT HUB</p>
+                <a href="index2.html">
+                    <img src="img/API.PNG" alt="GIT HUB API"> 
+                </a>
+            </h3>
             
 
             <!-- Carousel -->
-            <div
-                id="carouselExampleControls"
+            <div id="carouselExampleControls"
                 class="carousel slide"
-                data-ride="carousel"
-                
-            >
+                data-ride="carousel">
                 <h2>Conteúdo Sugerido</h2>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
